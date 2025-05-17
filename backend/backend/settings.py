@@ -9,6 +9,12 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="../.env")  # 加载 .env 文件中的内容
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 from pathlib import Path
 
