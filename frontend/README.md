@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Regex Pattern Replacer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project allows users to upload structured tabular data (CSV or Excel), write natural language instructions, and automatically generate regular expressions using an LLM (Large Language Model) to perform pattern-based search and replacement.
 
-## Available Scripts
+## Features
+- Upload Excel or CSV files
+- Display uploaded data in a table
+- Use natural language instructions to generate regex
+- Apply regex-based replacements
+- Preview processed results
+- Download processed data as a CSV
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## How to Set Up and Run the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Backend Setup (Django + OpenAI)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Requirements
+- Python 3.9+
+- pip
+- virtualenv (optional but recommended)
 
-### `npm test`
+#### Installation
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Add OpenAI API Key
+Create a `.env` file in the `backend` folder:
+```
+OPENAI_API_KEY=your_openai_key_here
+```
 
-### `npm run build`
+#### Run the server
+```bash
+python manage.py runserver
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Frontend Setup (React + MUI)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Requirements
+- Node.js (18+ recommended)
+- npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Installation
+```bash
+cd frontend
+npm install
+```
 
-### `npm run eject`
+#### Run the development server
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The frontend should be available at [http://localhost:3000](http://localhost:3000).
+Make sure the backend runs at [http://localhost:8000](http://localhost:8000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Demo Video
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> [![](https://img.youtube.com/vi/ytCFVj-wqEU/0.jpg)](https://www.youtube.com/watch?v=ytCFVj-wqEU)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Summary
 
-### Code Splitting
+This project demonstrates the combination of natural language understanding and traditional data transformation techniques. It leverages GPT (via OpenAI API) to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Convert flexible, human-friendly instructions into strict regex patterns
+- Enhance usability for non-technical users dealing with messy datasets
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🧠 Limitations & Ideas for Improvement
+- Currently only supports one rule at a time
+- Could add support for column-specific filtering
+- Could support multiple regex instructions in batch
+- Improve UX with real-time validation or pattern previews
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Folder Structure
 
-### Advanced Configuration
+```
+project-root/
+├── backend/          # Django backend with OpenAI integration
+├── frontend/         # React frontend using MUI
+└── README.md         # This file
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Author: chan.tang@student.unimelb.edu.au
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
