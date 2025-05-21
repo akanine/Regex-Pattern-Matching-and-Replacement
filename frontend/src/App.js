@@ -1,13 +1,8 @@
 import './App.css';
-import React from 'react';
-import FileUpload from './FileUpload';
+import RegexPage from './pages/RegexPage';
 
 function App() {
-  return (
-   <div className="App">
-      <FileUpload />
-    </div>
-  );
+  return <RegexPage />;
 }
 
 export default App;

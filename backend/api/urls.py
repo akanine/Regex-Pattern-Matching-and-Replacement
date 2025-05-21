@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import FileUploadView, RegexReplaceView
 
 urlpatterns = [
-    path('upload/', views.FileUploadView.as_view(), name='file-upload'),
-    path('process/', views.RegexReplaceView.as_view(), name='regex-process'),
+    path('upload/', FileUploadView.as_view(), name='file-upload'),
+    path('process/', RegexReplaceView.as_view(), name='regex-process'),
 ]
+
